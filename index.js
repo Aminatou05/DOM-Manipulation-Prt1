@@ -1,4 +1,10 @@
-
+// Menu data structure
+var menuLinks = [
+    { text: 'about', href: '/about' },
+    { text: 'catalog', href: '/catalog' },
+    { text: 'orders', href: '/orders' },
+    { text: 'account', href: '/account' },
+  ];
 
 // Manipulate the DOM using JavaScript
 // Do not modify any of the contents of the index.html or styles.css files. 
@@ -25,6 +31,23 @@ const topMenuEl = document.getElementById("top-menu");
 // Set the height of the topMenuEl element to be 100%
 topMenuEl.style.height = "100%";
 // Set the background color of topMenuEl to the value stored in the --top-menu-bg CSS custom property
-topMenuEl.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue("--top-menu-bg");
+topMenuEl.style.backgroundColor = 'var(--top-menu-bg)';
 // Add a class of "flex-around" to topMenuEl
 topMenuEl.classList.add("flex-around");
+
+// Part 3: Adding Menu Buttons
+//my Array of objects representing the Links
+// To continue:
+// Iterate over the entire menuLinks array and for each "link" object:
+// Create an <a> element.
+// On the new element, add an href attribute with its value set to the href property of the "link" object.
+// Set the new element's content to the value of the text property of the "link" object.
+// Append the new element to the topMenuEl element.
+
+for(i =0; i<menuLinks.length; i++){
+    const newElem = document.createElement('a')
+    newElem.setAttribute('href', menuLinks[i].href);
+    newElem.append(menuLinks[i].text);
+    document.getElementById("top-menu").appendChild(newElem);
+}
+console.log(newElem);
