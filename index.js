@@ -15,7 +15,7 @@ var menuLinks = [
 // Select and cache the <main> element in a variable named mainEl.
 
 let mainEl = document.querySelector('main');
-console.log(mainEl);
+// console.log(mainEl);
 // Set the background color of mainEl to the value stored in the --main-bg CSS custom property.
 mainEl.style.backgroundColor = 'var(--main-bg)';
 
@@ -62,3 +62,29 @@ menuLinks.forEach(menuLinks => {
 });
 
 // I like the forEach instead of for loop Iteration so, I made two examples and both works fine!
+
+// DOM Manipulation (Part Two)
+// Manipulate the DOM using JavaScript and DOM events.
+
+// Part 3: Creating the Submenu
+// Select and cache the <nav id="sub-menu"> element in a variable named subMenuEl.
+
+
+// Add the class of flex-around to the subMenuEl element.
+let subMenuEl = document.getElementById("sub-menu");
+console.log(subMenuEl);
+// Set the height subMenuEl element to be "100%".
+subMenuEl.style.height = '100%';
+// Set the background color of subMenuEl to the value stored in the --sub-menu-bg CSS custom property.
+subMenuEl.style.backgroundColor = 'var(--sub-menu-bg)';
+subMenuEl.classList.add('flex-around');
+
+// Set the CSS position property of subMenuEl to the value of absolute.
+// Set the CSS top property of subMenuEl to the value of 0.
+
+subMenuEl.style.position = 'absolute';
+subMenuEl.style.top = '0';
+
+// Part 4: Adding Menu Interaction
+// In order to add submenu links, we will need to restructure the menuLinks array within index.js.
+//  Update the menuLinks array to the following:
