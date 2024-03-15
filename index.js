@@ -1,10 +1,28 @@
 // Menu data structure
+
 var menuLinks = [
-    { text: 'about', href: '/about' },
-    { text: 'catalog', href: '/catalog' },
-    { text: 'orders', href: '/orders' },
-    { text: 'account', href: '/account' },
-  ];
+  {text: 'about', href: '/about'},
+  {text: 'catalog', href: '#', subLinks: [
+    {text: 'all', href: '/catalog/all'},
+    {text: 'top selling', href: '/catalog/top'},
+    {text: 'search', href: '/catalog/search'},
+  ]},
+  {text: 'orders', href: '#' , subLinks: [
+    {text: 'new', href: '/orders/new'},
+    {text: 'pending', href: '/orders/pending'},
+    {text: 'history', href: '/orders/history'},
+  ]},
+  {text: 'account', href: '#', subLinks: [
+    {text: 'profile', href: '/account/profile'},
+    {text: 'sign out', href: '/account/signout'},
+  ]},
+];
+// var menuLinks = [
+//     { text: 'about', href: '/about' },
+//     { text: 'catalog', href: '/catalog' },
+//     { text: 'orders', href: '/orders' },
+//     { text: 'account', href: '/account' },
+//   ];
 
 // Manipulate the DOM using JavaScript
 // Do not modify any of the contents of the index.html or styles.css files. 
@@ -88,3 +106,17 @@ subMenuEl.style.top = '0';
 // Part 4: Adding Menu Interaction
 // In order to add submenu links, we will need to restructure the menuLinks array within index.js.
 //  Update the menuLinks array to the following:
+
+// Select and cache the all of the <a> elements inside of topMenuEl in a variable named topMenuLinks.
+const topMenuLinks = topMenuEl.querySelectorAll('a');
+console.log(topMenuLinks);
+topMenuEl.addEventListener("click", function(event) {
+      // Prevent default behavior
+      event.preventDefault();
+
+      // Check if the clicked element is an <a> element
+      if (event.target.tagName === "A") {
+          // Log the content of the <a> element
+          console.log("Clicked link content:", event.target.textContent);
+      }
+})
