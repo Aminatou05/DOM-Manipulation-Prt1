@@ -44,10 +44,21 @@ topMenuEl.classList.add("flex-around");
 // Set the new element's content to the value of the text property of the "link" object.
 // Append the new element to the topMenuEl element.
 
-for(i =0; i<menuLinks.length; i++){
-    const newElem = document.createElement('a')
-    newElem.setAttribute('href', menuLinks[i].href);
-    newElem.append(menuLinks[i].text);
+// for(i =0; i<menuLinks.length; i++){
+//     const newElem = document.createElement('a')
+//     newElem.setAttribute('href', menuLinks[i].href);
+//     newElem.append(menuLinks[i].text);
+//     document.getElementById("top-menu").appendChild(newElem);
+// }
+// console.log(newElem);
+
+menuLinks.forEach(menuLinks => {
+    console.log(menuLinks);
+    const newElem = document.createElement('a');
+    newElem.setAttribute('href',menuLinks);
+    newElem.append(menuLinks.text);
     document.getElementById("top-menu").appendChild(newElem);
-}
-console.log(newElem);
+
+});
+
+// I like the forEach instead of for loop Iteration so, I made two examples and both works fine!
