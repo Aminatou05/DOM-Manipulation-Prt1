@@ -103,19 +103,15 @@ subMenuEl.classList.add('flex-around');
 subMenuEl.style.position = 'absolute';
 subMenuEl.style.top = '0';
 
-// Part 4: Adding Menu Interaction
-// In order to add submenu links, we will need to restructure the menuLinks array within index.js.
-//  Update the menuLinks array to the following:
-
 // Select and cache the all of the <a> elements inside of topMenuEl in a variable named topMenuLinks.
-const topMenuLinks = topMenuEl.querySelectorAll('a');
+const topMenuLinks = topMenuEl.querySelectorAll(' a');
 console.log(topMenuLinks);
 topMenuEl.addEventListener("click", function(event) {
       // Prevent default behavior
       event.preventDefault();
 
       // Check if the clicked element is an <a> element
-      if (event.target.tagName === "A") {
+      if (event.target.tagName === "A") {//return a
 //         The event listener should add the active class to the <a> element that was clicked, unless it was already active, in which case it should remove it.
 // The event listener should remove the active class from each other <a> element in topMenuLinks - whether the active class exists or not.
 // Hint: Removing a non-existent class from an element does not cause an error!
@@ -126,5 +122,32 @@ topMenuEl.addEventListener("click", function(event) {
             }
         });
           event.target.classList.toggle('active');
+          console.log(event.target.textContent);
+
+          }
+     
+      const linkObject = menuLinks.find((item) => item.id === link.id);
+     
+      if (linkObject.subLinks) {
+        // Set the CSS top property of subMenuEl to 100%
+        subMenuEl.style.top = "100%";
+      } else {
+        // Set the CSS top property of subMenuEl to 0
+        subMenuEl.style.top = "0";
       }
-})
+
+      // Add the "active" class to the clicked element
+      link.classList.add("active");
+    }
+)
+// Part 5: Adding Submenu Interaction
+function buildSubmenu(subLinks) {
+  subMenuEl.innerHTML = ''; // Clear existing contents
+
+  subLinks.forEach((link) => {
+    const submenuLink = document.createElement('a');
+    submenuLink.href = link.href;
+    submenuLink.textContent = link.text;
+    subMenuEl.appendChild(submenuLink);
+  });
+}
